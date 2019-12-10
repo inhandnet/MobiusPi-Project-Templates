@@ -1,0 +1,7 @@
+config:
+   description: "hello world!"
+   others:
+      LOG:
+        #Enable debug feature to write all logs to the console
+        #Default: debug=0
+        debug: 1
