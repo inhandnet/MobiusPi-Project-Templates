@@ -2,34 +2,53 @@
 
 import yaml
 
+class YamlConfig:
+    """A class that Parses the yaml style configuration file of user app.
+    
+    usage:
+       file = './config.yaml'
+       configs = YamlConfig(file)
+           file --> config file name 
+       configs.exist_config_option('config', 'description')
+           examine if this configuration exists
+       configs.get_option_config('config', 'description')
+           get Specific configuration
+       configs.get_configs()
+           get all configurations from config file
+   
+    """
 
-class Config:
-    def __init__(self):
-        self.others = dict()
+    def __init__(self, filename):
+        self.configs = None
 
-    def has_option(self, section, option):
+        with open(filename, "r") as f:
+            self.configs = yaml.load(f)
+
+    def exist_config_option(self, section, option):
         state = False
-        if self.others and section in self.others and option in self.others[
-                section]:
+        if self.configs and section in self.configs and option in self.configs[section]:
             state = True
         return state
 
-    def get(self, section, option, raw=False, vars=None):
-        return self.others[section][option]
+    def get_option_config(self, section, option):
+        if self.exist_config_option(section, option):
+            return self.configs[section][option]
+        else:
+            return None
 
-    def getint(self, section, option, raw=False, vars=None):
-        return int(self.others[section][option])
+    def convert_config_to_integer(self, section, option):
+        if self.exist_config_option(section, option):
+            try:
+                return int(self.configs[section][option])
+            except Exception as error:
+                print("can not convert config %s to integer. Error:%s" % (self.configs[section][option], error))
 
-    # 解析变量文件
-    def parse_yaml_config(self, filename):
-        with open(filename, "r") as f:
-            s = yaml.load(f)
-            self.others = s['config']['others']
-            print(s)
-            return s
+    def get_configs(self):
+        return self.configs
 
 
 if __name__ == '__main__':
     filename = "./config.yaml"
-    config_instance = Config()
-    config_instance.parse_yaml_config(filename)
+    config_instance = YamlConfig(filename)
+    yaml_configs = config_instance.get_configs()
+
