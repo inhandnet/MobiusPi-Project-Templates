@@ -3,7 +3,7 @@
 MobiusPi project templates for VS Code based IDE. You can rapidly initialize your mobiuspi python project with these templates.
 
 Templates:
-- helloworld-template: a very simple template to create a project. It prints some words to the terminal and log file.
+- helloworld-template: a very simple template to create a project. It prints some messages to the terminal and log file.
 
 
 ## How To Use Templates?
