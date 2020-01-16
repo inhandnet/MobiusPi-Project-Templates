@@ -8,7 +8,7 @@ Templates:
 
 ## How To Use Templates?
 
-Please refer to the [MobiusPi Development Documentations](TODO:在这里给出英文在线文档链接).
+Please refer to the [MobiusPi Development Documentations](https://ingateway-development-docs-en.readthedocs.io/en/latest/).
 
 # MobiusPi工程模板
 
@@ -19,4 +19,4 @@ Please refer to the [MobiusPi Development Documentations](TODO:在这里给出�
 
 ## 如何使用模板?
 
-请参考[MobiusPi开发者手册](TODO:在这里给出中文在线文档链接).
+请参考[MobiusPi开发者手册](https://ingateway-development-docs.readthedocs.io/zh_CN/latest/).
