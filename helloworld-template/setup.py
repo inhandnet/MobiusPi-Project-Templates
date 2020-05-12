@@ -8,9 +8,9 @@ install_requires： 安装依赖
 entry_points： 程序执行的入口
 '''
 from setuptools import setup, find_packages
-setup(name='helloworld',
-      version='0.0.0',
-      sdk_version='0.2.0',
+setup(name='appname',
+      version='0.0.1',
+      sdk_version='1.3.5',
       author='Inhand',
       author_email='',
       description='',
