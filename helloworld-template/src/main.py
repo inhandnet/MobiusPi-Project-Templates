@@ -4,7 +4,6 @@ import logging
 import time
 from parse_config import YamlConfig
 from mobiuspi_lib.config import Config as APPConfig
-import xlrd
 
 debug_format = '[%(asctime)s] [%(levelname)s] [%(filename)s %(lineno)d]: %(message)s'
 logging.basicConfig(format=debug_format, level=logging.INFO)
