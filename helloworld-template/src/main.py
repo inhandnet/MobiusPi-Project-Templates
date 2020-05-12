@@ -4,22 +4,26 @@ import logging
 import time
 from parse_config import YamlConfig
 from mobiuspi_lib.config import Config as APPConfig
+import xlrd
 
-logging.basicConfig(level=logging.DEBUG)
+debug_format = '[%(asctime)s] [%(levelname)s] [%(filename)s %(lineno)d]: %(message)s'
+logging.basicConfig(format=debug_format, level=logging.INFO)
 
 def main(argv=sys.argv):
-    logging.debug("Hello, world! Welcome to the Inhand!")
+    logging.info("Hello, world! Welcome to the Inhand!")
     print("Hello, world! Welcome to the Inhand!")
 
     """get config file of user app  
-         APPConfig(name="appname")
+         APPConfig(app_name="appname")
             'appname' is the name of user app
+            it should the same as the name in setup.py
          app_config.get_app_cfg_file()
             get user app configuration file
     """
-    app = APPConfig(name="appname") 
+    app = APPConfig(app_name="appname") 
     app_config_file = app.get_app_cfg_file()
     if not app_config_file:
+        logging.warn("Do not find config file, please import first!")
         return
 
     #print("app config file:%s" % app_config_file)
