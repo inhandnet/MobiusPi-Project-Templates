@@ -21,5 +21,5 @@ setup(name='appname',
       install_requires=[],
       entry_points="""
       [console_scripts]
-      linkedge = Application:main
+      appname = Application:main
       """)
